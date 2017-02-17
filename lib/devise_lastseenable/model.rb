@@ -6,7 +6,7 @@ module Devise
       def stamp!
         if self.last_seen.to_i < (Time.now - 5.minutes).to_i
           self.last_seen = DateTime.now
-          self.save!
+          self.save!(touch: false)
         end
       end
     end
